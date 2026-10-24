@@ -1,0 +1,31 @@
+{
+  "seed": 42,
+  "train_medians": {
+    "credit_score": 663.0,
+    "monthly_income": 39800.0,
+    "years_in_current_job": 2.6
+  },
+  "feature_cols": [
+    "age",
+    "years_in_current_job",
+    "monthly_income",
+    "existing_monthly_emi",
+    "credit_score",
+    "credit_history_years",
+    "num_past_delinquencies",
+    "loan_amount",
+    "tenure_months",
+    "proposed_emi",
+    "dti_ratio",
+    "loan_to_income",
+    "credit_score_missing",
+    "thin_file",
+    "emp_self_employed",
+    "emp_business_owner"
+  ],
+  "fairness_only_cols": [
+    "gender",
+    "city_tier"
+  ],
+  "income_verify_limit": 500000
+}

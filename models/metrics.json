@@ -1,0 +1,129 @@
+{
+  "assumptions": {
+    "LGD": 0.5,
+    "MARGIN": 0.08
+  },
+  "validation": [
+    {
+      "model": "Logistic regression",
+      "ROC-AUC": 0.852,
+      "PR-AUC": 0.556,
+      "Brier": 0.0883,
+      "cost-optimal threshold": 0.11000000000000003
+    },
+    {
+      "model": "Gradient boosting",
+      "ROC-AUC": 0.836,
+      "PR-AUC": 0.539,
+      "Brier": 0.0899,
+      "cost-optimal threshold": 0.14500000000000002
+    }
+  ],
+  "champion": "Logistic regression",
+  "threshold": 0.11000000000000003,
+  "test": [
+    {
+      "model": "Baseline: approve everyone",
+      "approved_and_repaid_TN": 1376,
+      "rejected_but_would_repay_FP": 0,
+      "approved_but_defaulted_FN": 224,
+      "rejected_and_defaulted_TP": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "total_cost_rs": 47449000
+    },
+    {
+      "model": "Reject everyone",
+      "approved_and_repaid_TN": 0,
+      "rejected_but_would_repay_FP": 1376,
+      "approved_but_defaulted_FN": 0,
+      "rejected_and_defaulted_TP": 224,
+      "precision": 0.14,
+      "recall": 1.0,
+      "total_cost_rs": 34618720
+    },
+    {
+      "model": "Logistic regression @ 0.5 (naive)",
+      "approved_and_repaid_TN": 1341,
+      "rejected_but_would_repay_FP": 35,
+      "approved_but_defaulted_FN": 156,
+      "rejected_and_defaulted_TP": 68,
+      "precision": 0.66,
+      "recall": 0.304,
+      "total_cost_rs": 28130400
+    },
+    {
+      "model": "Logistic regression @ 0.110 (cost-based)",
+      "approved_and_repaid_TN": 973,
+      "rejected_but_would_repay_FP": 403,
+      "approved_but_defaulted_FN": 47,
+      "rejected_and_defaulted_TP": 177,
+      "precision": 0.305,
+      "recall": 0.79,
+      "total_cost_rs": 18732360
+    },
+    {
+      "model": "Gradient boosting @ 0.5 (naive)",
+      "approved_and_repaid_TN": 1344,
+      "rejected_but_would_repay_FP": 32,
+      "approved_but_defaulted_FN": 160,
+      "rejected_and_defaulted_TP": 64,
+      "precision": 0.667,
+      "recall": 0.286,
+      "total_cost_rs": 29909400
+    },
+    {
+      "model": "Gradient boosting @ 0.145 (cost-based)",
+      "approved_and_repaid_TN": 1065,
+      "rejected_but_would_repay_FP": 311,
+      "approved_but_defaulted_FN": 62,
+      "rejected_and_defaulted_TP": 162,
+      "precision": 0.342,
+      "recall": 0.723,
+      "total_cost_rs": 19880160
+    }
+  ],
+  "bands": [
+    {
+      "approve_below": 0.1,
+      "reject_at_or_above": 0.25,
+      "auto_approve_%": 61.4,
+      "review_%": 22.4,
+      "auto_reject_%": 16.2,
+      "default_rate_in_approve_%": 4.3,
+      "default_rate_in_review_%": 17.0,
+      "default_rate_in_reject_%": 46.7
+    },
+    {
+      "approve_below": 0.08,
+      "reject_at_or_above": 0.18,
+      "auto_approve_%": 55.6,
+      "review_%": 20.6,
+      "auto_reject_%": 23.8,
+      "default_rate_in_approve_%": 4.4,
+      "default_rate_in_review_%": 10.6,
+      "default_rate_in_reject_%": 39.5
+    },
+    {
+      "approve_below": 0.09,
+      "reject_at_or_above": 0.14,
+      "auto_approve_%": 58.6,
+      "review_%": 12.5,
+      "auto_reject_%": 28.9,
+      "default_rate_in_approve_%": 4.3,
+      "default_rate_in_review_%": 9.5,
+      "default_rate_in_reject_%": 35.7
+    }
+  ],
+  "fairness": {
+    "gender": {
+      "Female": 0.64,
+      "Male": 0.637
+    },
+    "city_tier": {
+      "1": 0.637,
+      "2": 0.659,
+      "3": 0.601
+    }
+  }
+}
